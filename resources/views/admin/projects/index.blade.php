@@ -21,14 +21,15 @@
                 <div class="row">
                     <div class="col-2">
                         <div class="fw-bold ">
+                            <hr>
                             <h2>
-                                {{ $project->name }}
+                                {{ $project->id }}) {{ $project->name }}
                             </h2>
                         </div>
                     </div>
                     <div class="d-flex justy-content-between">
                         <div>
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">
                                 Vedi Dettagli
                             </a>
                         </div>

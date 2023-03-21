@@ -11,7 +11,6 @@ class PageController extends Controller
 {
     public function dashboard()
     {
-        $projects = Project::all();
-        return view('admin.dashboard', compact('projects'));
+        return view('admin.dashboard');
     }
 }

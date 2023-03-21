@@ -4,17 +4,37 @@
     <div class="container-fluid mt-4">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="card mx-1 px-3">
-                    {{ $projects }}
+                <div class="mx-1 px-3">
+                    <span>
+                        Nome Progetto:
+                    </span>
+                    <span class="fw-bold">
+                        {{ $project->name }}
+                    </span>
                 </div>
-                <div>
-                    <a href="{{ 'projects.index' }}">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 py-5">
+                <div class="my-1 px-3">
+                    Descrizione del progetto:
+                </div>
+                <div class="mx-1 px-3 fw-bold">
+                    @for ($i = 0; $i < 30; $i++)
+                        {{ $project->description }}
+                    @endfor
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mx-1 px-3">
+                    <a href="{{ route('admin.projects.index') }}">
                         <button class="btn btn-danger">
                             Return
                         </button>
                     </a>
                 </div>
-                
             </div>
         </div>
     </div>
