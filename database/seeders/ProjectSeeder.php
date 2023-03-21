@@ -5,6 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+//Models
+use App\Models\Project;
+
+//Helpers
+use Faker\Generator as Faker;
 class ProjectSeeder extends Seeder
 {
     /**
@@ -12,8 +17,14 @@ class ProjectSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+        for ($i=0; $i <10; $i++) {
+            Project::create([
+                'name' => $faker->unique()->word(),
+                'description' => $faker->paragraph(),
+                'link' => $faker-> sentence(),
+            ]);
+        }
     }
 }
