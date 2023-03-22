@@ -1,23 +1,59 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container-fluid mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+    <div class="container-fluid mt-4">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="mx-1 px-3">
+                    <h1>Aggiungi nuovo progetto</h1>
+                </div>
+            </div>
+        </div>
+        @if ($errors->any())
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="mx-1 px-3">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>
+                                        {{ $error }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        @endif
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="mx-1 px-3">
+                    <form action="{{ route('admin.projects.store') }}" method="POST">
+                        @csrf
+                        <div class="py-3">
+                            <label class="py-1" for="name">Nome progetto</label>
+                            <input name="name" type="text" class="form-control" id="name"
+                                placeholder="Inserisci il nome del progetto" required maxlength="30">
+                        </div>
+                        <div class="py-3">
+                            <label class="py-1" for="description">Descrizione del progetto</label>
+                            <input name="description" type="text" class="form-control" id="description"
+                                placeholder="Inserisci descrizione del progetto" required maxlength="200">
+                        </div>
+                        <div class="py-3">
+                            <label class="py-1" for="link">Link al progetto</label>
+                            <input name="link" type="text" class="form-control" id="link"
+                                placeholder="Inserisci link al progetto" required maxlength="500">
+                        </div>
+                        <div class="py-3">
+                            <button class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

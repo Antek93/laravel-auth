@@ -11,7 +11,7 @@
             </div>
             <div class="row justify-content-center py-4">
                 <div class="col-12 d-flex">
-                    <a href="#">
+                    <a href="{{ route('admin.projects.create') }}">
                         <button class="btn btn-success">
                             Aggiungi un progetto
                         </button>
