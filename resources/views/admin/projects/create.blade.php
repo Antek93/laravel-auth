@@ -50,8 +50,14 @@
                                 value="{{ old('link') }}">
                         </div>
                         <div class="py-3">
+                            <label class="py-1" for="imagn">Immagine in evidenza</label>
+                            <input name="imagn" type="file" class="form-control" id="imagn"
+                                placeholder="Inserisci immagine al progetto"
+                                value="{{ old('imagn') }}" accept="image/*" enctype="multipart/form-data">
+                        </div>
+                        <div class="py-3">
                             <button class="btn btn-success">
-                                Submit
+                                Crea progetto
                             </button>
                         </div>
                     </form>

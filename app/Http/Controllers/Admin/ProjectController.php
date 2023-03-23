@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
+//Helpers
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 
@@ -42,8 +44,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+
         $data = $request->validated();
-        
+
+        if (array_key_exists('img', $data)) {
+            $img_path = Storage::put('projects', $data['imagn']);
+            $data['imagn'] = $img_path;
+        }
+
         $newProject = Project::create($data);
 
         return redirect()->route('admin.projects.show', $newProject)->with('success', 'Progetto aggiunto con successo');
@@ -81,7 +89,7 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-        
+
         $project->update($data);
 
         return redirect()->route('admin.projects.show', $project)->with('success', 'Progetto modificato con successo');
@@ -97,6 +105,5 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route('admin.projects.index')->with('success', 'Progetto eliminato con successo');
-
     }
 }

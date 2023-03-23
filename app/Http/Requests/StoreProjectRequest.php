@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
             'name' => 'required|max:30',
             'description' => 'required|max:300',
             'link' => 'required|max:500',
+            'imagn' => 'nullable|max:2048|image',
         ];
     }
 }
