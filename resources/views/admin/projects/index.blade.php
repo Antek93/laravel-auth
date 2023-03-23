@@ -18,6 +18,17 @@
                     </a>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="mx-1 px-3">
+                        @if (session('success'))
+                            <div class="alert alert-success mb-4">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
             @foreach ($projects as $project)
                 <div class="row">
                     <div class="fw-bold ">
@@ -38,13 +49,13 @@
                             </a>
                         </div>
                         <div>
-                            {{-- <form action="" method="POST"> --}}
-                            {{-- @csrf --}}
-                            {{-- @method('DELETE') --}}
-                            <button type="submit" class="btn btn-danger">
-                                Elimina
-                            </button>
-                            {{-- </form> --}}
+                            <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    Elimina
+                                </button>
+                            </form>
                         </div>
                     </div>
             @endforeach
