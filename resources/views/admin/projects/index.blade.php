@@ -33,7 +33,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="#" class="btn btn-warning mx-2">
+                            <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning mx-2">
                                 Modifica
                             </a>
                         </div>

@@ -34,17 +34,20 @@
                         <div class="py-3">
                             <label class="py-1" for="name">Nome progetto</label>
                             <input name="name" type="text" class="form-control" id="name"
-                                placeholder="Inserisci il nome del progetto" required maxlength="30">
+                                placeholder="Inserisci il nome del progetto" required maxlength="30"
+                                value="{{ old('name') }}">
                         </div>
                         <div class="py-3">
                             <label class="py-1" for="description">Descrizione del progetto</label>
                             <input name="description" type="text" class="form-control" id="description"
-                                placeholder="Inserisci descrizione del progetto" required maxlength="200">
+                                placeholder="Inserisci descrizione del progetto" required maxlength="200"
+                                value="{{ old('description') }}">
                         </div>
                         <div class="py-3">
                             <label class="py-1" for="link">Link al progetto</label>
                             <input name="link" type="text" class="form-control" id="link"
-                                placeholder="Inserisci link al progetto" required maxlength="500">
+                                placeholder="Inserisci link al progetto" required maxlength="500"
+                                value="{{ old('link') }}">
                         </div>
                         <div class="py-3">
                             <button class="btn btn-success">
