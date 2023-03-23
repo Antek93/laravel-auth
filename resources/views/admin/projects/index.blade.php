@@ -49,7 +49,7 @@
                             </a>
                         </div>
                         <div>
-                            <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
+                            <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
