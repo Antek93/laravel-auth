@@ -5,6 +5,17 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="mx-1 px-3">
+                    @if (session('success'))
+                        <div class="alert alert-success mb-4">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="mx-1 px-3">
                     <span>
                         Nome Progetto:
                     </span>

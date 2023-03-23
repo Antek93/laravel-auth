@@ -46,7 +46,7 @@ class ProjectController extends Controller
         
         $newProject = Project::create($data);
 
-        return redirect()->route('admin.projects.show', $newProject);
+        return redirect()->route('admin.projects.show', $newProject)->with('success', 'Progetto aggiunto con successo');
     }
 
     /**
