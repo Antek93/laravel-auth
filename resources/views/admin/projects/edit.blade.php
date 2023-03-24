@@ -29,7 +29,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="mx-1 px-3">
-                    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+                    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="py-3">
@@ -51,11 +51,27 @@
                                 value="{{ old('link', $project->link) }}">
                         </div>
                         <div class="py-3">
+                            <label class="py-1" for="imagn">Immagine in evidenza</label>
+                            <input name="imagn" type="file" class="form-control" id="imagn"
+                                placeholder="Inserisci immagine al progetto" accept="image/*">
+                        </div>
+                        <div class="py-3">
                             <button class="btn btn-success">
-                               Aggiorna
+                                Aggiorna
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 py-5">
+                <div class="mx-1 px-3 fw-bold">
+                    @if ($project->imagn)
+                        <div>
+                            <img src="{{ asset('storage/'.$project->imagn) }}" alt="">
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

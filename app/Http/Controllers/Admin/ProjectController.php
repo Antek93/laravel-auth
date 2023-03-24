@@ -47,8 +47,8 @@ class ProjectController extends Controller
 
         $data = $request->validated();
 
-        if (array_key_exists('img', $data)) {
-            $img_path = Storage::put('projects', $data['imagn']);
+        if (array_key_exists('imagn', $data)) {
+            $img_path = Storage::put('project', $data['imagn']);
             $data['imagn'] = $img_path;
         }
 
@@ -89,6 +89,15 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+
+        if (array_key_exists('imagn', $data)) {
+            $img_path = Storage::put('project', $data['imagn']);
+            $data['imagn'] = $img_path;
+
+            if ($project->imagn) {
+                Storage::delite($project->imagn);
+            }
+        }
 
         $project->update($data);
 

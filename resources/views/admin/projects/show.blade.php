@@ -37,6 +37,17 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-12 py-5">
+                <div class="mx-1 px-3 fw-bold">
+                    @if ($project->imagn)
+                        <div>
+                            <img src="{{ asset('storage/'.$project->imagn) }}" alt="">
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="mx-1 px-3">

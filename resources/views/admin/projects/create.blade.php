@@ -29,7 +29,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="mx-1 px-3">
-                    <form action="{{ route('admin.projects.store') }}" method="POST">
+                    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="py-3">
                             <label class="py-1" for="name">Nome progetto</label>
@@ -53,7 +53,7 @@
                             <label class="py-1" for="imagn">Immagine in evidenza</label>
                             <input name="imagn" type="file" class="form-control" id="imagn"
                                 placeholder="Inserisci immagine al progetto"
-                                value="{{ old('imagn') }}" accept="image/*" enctype="multipart/form-data">
+                                accept="image/*">
                         </div>
                         <div class="py-3">
                             <button class="btn btn-success">
